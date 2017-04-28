@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="container">
+    <a href="{{ path('student-edit', { 'id': student.id }) }}" class="btn btn-primary">edit student</a>
+    <h1 style="text-align: center;">{{ student.firstName }} {{ student.lastName }}</h1><hr>
+    <div style="float: left;">
+        <p>Class</p>
+        <p>Joined</p>
+        <p>Father's Name</p>
+        <p>Mother's Name</p>
+        <p>Gender</p>
+        <p>Date of Birth</p>
+        <p>Active</p>
+        <p>Family Type</p>
+        <p>Address</p>
+        <p>Parent's Occupation</p>
+        <p>Parent's Income</p>
+    </div>
+    <div style="float: right;">
+        <p>{{ student.class }}</p>
+        <p>{{ student.joined|date('d M, Y') }}</p>
+        <p>{{ student.fathersName }}</p>
+        <p>{{ student.mothersName }}</p>
+        <p>{{ student.gender }}</p>
+        <p>{{ student.dob|date('d M, Y') }}</p>
+        <p>{{ student.active }}</p>
+        <p>{{ student.familyType }}</p>
+        <p>{{ student.address }}</p>
+        <p>{{ student.parentsOccupation }}</p>
+        <p>{{ student.parentsIncome }} <i class="fa fa-inr" aria-hidden="true"></i>
+ per month</p>
+    </div>
+</div>
+<div class="container">
+    <h2>Siblings</h2>
+    <hr>
+    <a class="btn btn-primary" href="{{ path('relative-create', { 'id': student.id }) }}"><i class="fa fa-plus"></i> Add Siblings</a>
+    <table class="table">
+        <thead>
+            <tr style="margin: auto;">
+                <th>Name</th>
+                <th>Class</th>
+                <th>Date of Birth</th>
+                <th>Edit Siblings</th>
+            </tr>
+        </thead>
+        {% for relative in student.relatives %}
+        <tr>
+            <td>{{ relative.name }}</td>
+            <td>{{ relative.class }}</td>
+            <td>{{ relative.dob|date('d M, Y') }}</td>
+            <td><a href="{{ path('relative-edit', { 'student_id': student.id, 'relative_id': relative.id }) }}">Edit Siblings</a><td>
+        </tr>
+        {% endfor %}
+    </table>
+
+</div>
+
+{% endblock %}

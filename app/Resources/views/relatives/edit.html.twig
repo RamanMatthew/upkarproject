@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+{% form_theme form 'bootstrap_3_layout.html.twig' %}
+
+
+{% block body %}
+<div class="container">
+    <h3>Edit relative</h3>
+
+    <div class="symfony-form">
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <input type="hidden" name="delete" id="delete" value="0">
+        <button type="submit" class="btn btn-primary" id="submit">Save Relative</button>
+        <button type="button" class="btn btn-danger" onclick="
+        $('#delete').val(1)
+        $('#submit').click()
+        ">Delete relative</button>
+        {{ form_end(form) }}
+    </div>
+</div>
+
+{% endblock %}

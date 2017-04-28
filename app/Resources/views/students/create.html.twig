@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+{% form_theme form 'bootstrap_3_layout.html.twig' %}
+
+{% block body %}
+
+<div class="container">
+    <h3>Add a New Student</h3>
+{{ form_start(form) }}
+{{ form_widget(form) }}
+<button type="submit" class="btn btn-primary">Add Student</button>
+{{ form_end(form) }}
+</div>
+
+{% endblock %}
