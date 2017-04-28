@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+{% form_theme form 'bootstrap_3_layout.html.twig' %}
+
+{% block body %}
+<div class="container">
+    <h1 style="text-align: center;">{{ user.name }}</h1><hr>
+    <div class="symfony-form">
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <input type="hidden" name="delete" id="delete" value="0">
+        <button type="submit" class="btn btn-primary" id="submit">Save User</button>
+        <button type="button" class="btn btn-danger" onclick="
+        $('#delete').val(1)
+        $('#submit').click()
+        ">Delete User</button>
+        {{ form_end(form) }}
+    </div>
+</div>
+
+{% endblock %}

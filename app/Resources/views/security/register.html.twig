@@ -1,0 +1,17 @@
+{% if error %}
+    <div>{{ error }}</div>
+{% endif %}
+
+<form action="{{ path('register', { 'id': user.id, 'registration_token': registration_token }) }}" method="post">
+    <input type="hidden" name="csrf_token" value="{{ csrf_token('register') }}">
+    <input type="hidden" name="registration_token" value="{{ registration_token }}">
+
+    <label>Password</label><br>
+    <input type="password" name="password"><br><br>
+
+    <label>Confirm Password</label><br>
+    <input type="password" name="confirm_password"><br><br>
+
+    <button type="submit" class="btn btn-primary">Register</button>
+</form>
+{% include 'layouts/footer.html.twig' %}

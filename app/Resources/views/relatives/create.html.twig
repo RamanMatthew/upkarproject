@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h3>Add a New Relative</h3>
+
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <input type="hidden" value="{{ student.id }}" name="student_id">
+        <button type="submit">Add</button>
+    {{ form_end(form) }}
+
+{% endblock %}

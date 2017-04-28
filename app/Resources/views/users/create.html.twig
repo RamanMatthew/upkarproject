@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+{% form_theme form 'bootstrap_3_layout.html.twig' %}
+
+
+{% block body %}
+<div class="container">
+    <h1 style="text-align: center;">Add new User</h1><hr>
+    <div class="symfony-form">
+        {{ form_start(form) }}
+            {{ form_widget(form) }}
+            <button type="submit" class="btn btn-primary" id="submit">Create User</button>
+        {{ form_end(form) }}
+    </div>
+</div>
+
+{% endblock %}
