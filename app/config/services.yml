@@ -6,4 +6,3 @@ parameters:
 services:
     app.crypt:
         class: AppBundle\Service\Crypt
-        arguments: ['@security.authorization_checker']
